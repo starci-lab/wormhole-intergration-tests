@@ -28,6 +28,11 @@
   "description": "",
   "dependencies": {
     "@aptos-labs/ts-sdk": "1.29.1",
+    "@metaplex-foundation/mpl-token-metadata": "3.2.1",
+    "@metaplex-foundation/mpl-toolbox": "0.9.4",
+    "@metaplex-foundation/umi": "0.9.2",
+    "@metaplex-foundation/umi-bundle-defaults": "0.9.2",
+    "@solana/spl-token": "0.4.8",
     "@solana/web3.js": "1.95.3",
     "@wormhole-foundation/sdk-aptos": "0.10.9",
     "aptos": "1.21.0"
