@@ -35,6 +35,7 @@
     "@solana/spl-token": "0.4.8",
     "@solana/web3.js": "1.95.3",
     "@wormhole-foundation/sdk-aptos": "0.10.9",
+    "algosdk": "3.0.0",
     "aptos": "1.21.0"
   }
 }
