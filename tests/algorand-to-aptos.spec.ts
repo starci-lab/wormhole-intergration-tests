@@ -6,9 +6,8 @@ import {
   Network,
   sleep,
 } from "@aptos-labs/ts-sdk";
-import { clusterApiUrl, Connection, Keypair, PublicKey } from "@solana/web3.js";
 import { AptosAccount, AptosClient } from "aptos";
-import { AptosSigner, AptosAddress } from "@wormhole-foundation/sdk-aptos";
+import { AptosAddress, AptosSigner } from "@wormhole-foundation/sdk-aptos";
 import { AlgorandAddress, AlgorandSigner } from "@wormhole-foundation/sdk-algorand";
 import {
   nativeTokenId,
@@ -19,6 +18,7 @@ import {
 import algorand from "@wormhole-foundation/sdk/algorand";
 import aptos from "@wormhole-foundation/sdk/aptos";
 import algosdk from "algosdk";
+
 describe("Sould Algorand to Aptos work", () => {
   it("Should complete with native token transfer", async () => {
     //my Algorand wallet, has > 0 ALGO
@@ -35,9 +35,9 @@ describe("Sould Algorand to Aptos work", () => {
     );
     const algorandClient = new algosdk.Algodv2("", "https://testnet-api.algonode.cloud")
     const accountInformation = await algorandClient.accountInformation(algorandAccount.addr).do();
-    console.log(accountInformation)
     const accountBalance = accountInformation.amount
-    console.log(`Algorand balance: ${accountInformation} ALGO`);
+    console.log(`Algorand address: ${algorandAccount.addr.toString()}`);
+    console.log(`Algorand balance: ${accountBalance} ALGO`);
     expect(Number(accountBalance)).toBeGreaterThan(0);
 
     //my Aptos wallet, has > 0 APT
@@ -57,6 +57,7 @@ describe("Sould Algorand to Aptos work", () => {
     const aptosBalance = await aptosClient.getAccountAPTAmount({
       accountAddress: aptosAccount.accountAddress,
     });
+    console.log(`Aptos address: ${aptosAccount.accountAddress.toString()}`);
     console.log(`Aptos balance: ${aptosBalance} APT`);
     expect(aptosBalance).toBeGreaterThan(0);
 
